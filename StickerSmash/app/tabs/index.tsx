@@ -2,6 +2,9 @@
 import { Text, View, StyleSheet } from "react-native";
 //allows us to use the Link component for our router
 import { Link } from "expo-router";
+import { Image } from "expo-image";
+import ImageViewer from "@/components/ImageViewer";
+const placeholderImage = require('@/assets/images/background-image.png');
 
 //creating a component called Index, which contains a View object with text
 const Index = () => {
@@ -9,10 +12,9 @@ const Index = () => {
     //create a view, and a text component inside it
     // use our style component to style these components on screen
     <View style={styles.container}>
-      <Text style={styles.text}> Home Screen </Text>
-      <Link href="/tabs/about" style={styles.button}>
-        About Screen
-      </Link>
+      <View style={styles.imageContainer}>
+        <ImageViewer imgSource={placeholderImage} />
+      </View>
     </View>
   );
 }
@@ -39,4 +41,7 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
 
+  imageContainer: {
+    flex: 1
+  }
 });
